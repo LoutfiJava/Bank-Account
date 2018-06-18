@@ -30,7 +30,7 @@ public class AccountTest {
 	
 	/* Create Account with solde */
 	@Test
-	public void CreateAccountWithSolde() {
+	public void CreateAccountWithSoldeTest() {
 		
 		//initialisation id
 		AccountFactory.initIdAccount();

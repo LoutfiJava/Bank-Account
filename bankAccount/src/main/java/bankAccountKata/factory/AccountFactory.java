@@ -10,4 +10,13 @@ public class AccountFactory {
 		idIncrement++;
 		return new Account(idIncrement, 0);
 	}
+	
+	public static Account creatAccount(int solde) {
+		idIncrement++;
+		return new Account(idIncrement, solde);
+	}
+	
+	public static void initIdAccount() {
+		idIncrement = 0;
+	}
 }

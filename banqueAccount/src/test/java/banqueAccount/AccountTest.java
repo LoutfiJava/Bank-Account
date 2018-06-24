@@ -61,12 +61,24 @@ public class AccountTest {
 		Operation depositOperation = OperationFactory.creatOperation();
 		depositOperation.setOperationType(TypeOperation.Deposit);
 		depositOperation.setOperationDate(new Date());
-		depositOperation.setOperationAmmount(100);
-		
+		depositOperation.setOperationAmmount(100);		
 		assertEquals(accountOperation.addOperation(depositOperation), 100);
 		
 	}
 	
-	
-	
+	/*make a withraw operation*/
+	@Test
+	public void makeAWithrawOperationInAccount() {
+		//initialisation id
+		AccountFactory.initIdAccount();
+		OperationFactory.initIdOperation();
+		
+		//Create an account for withraw operation.
+		Account accountOperation = AccountFactory.creatAccount(5000);
+		Operation withrawOperation = OperationFactory.creatOperation();
+		withrawOperation.setOperationType(TypeOperation.Withraw);
+		withrawOperation.setOperationDate(new Date());
+		withrawOperation.setOperationAmmount(100);		
+		assertEquals(accountOperation.addOperation(withrawOperation), 4900);
+	}	
 }

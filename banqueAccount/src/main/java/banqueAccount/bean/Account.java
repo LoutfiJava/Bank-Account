@@ -1,5 +1,7 @@
 package banqueAccount.bean;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import banqueAccount.type.TypeOperation;
@@ -15,7 +17,7 @@ public class Account {
 
 	int idAccount;
 	int balance;
-	Set<Operation> listOfOperations;
+    List<Operation> listOfOperations;
 
 	public Account(int idAccount, int balance) {
 		super();
@@ -38,12 +40,11 @@ public class Account {
 		this.balance = balance;
 	}
 
-	public Set<Operation> getListOfOperations() {
+	public List<Operation> getListOfOperations() {
+		if(this.listOfOperations==null) {
+			listOfOperations = new ArrayList<Operation>();
+		}
 		return listOfOperations;
-	}
-
-	public void setListOfOperations(Set<Operation> listOfOperations) {
-		this.listOfOperations = listOfOperations;
 	}
 
 	public int addOperation(Operation operation) {
@@ -55,6 +56,7 @@ public class Account {
 				return -1;
 			}else {
 				balance = balance+operation.getOperationAmmount();
+				getListOfOperations().add(operation);
 				return balance;
 			}
 		case Withraw:
@@ -63,6 +65,7 @@ public class Account {
 				return -1;
 			}else {
 				balance = balance-Math.abs(operation.getOperationAmmount());
+				getListOfOperations().add(operation);
 				return balance;
 			}
 		default:

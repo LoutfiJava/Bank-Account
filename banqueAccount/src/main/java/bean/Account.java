@@ -11,6 +11,7 @@ public class Account {
 
 	int idAccount;
 	int solde;
+	//Set<Operations> listOfOperations;
 	
 	
 	public Account(int idAccount, int solde) {

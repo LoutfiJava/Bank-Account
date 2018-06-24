@@ -3,10 +3,15 @@ package banqueAccount;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Date;
+
 import org.junit.Test;
 
+import banqueAccount.bean.Account;
+import banqueAccount.bean.Operation;
 import banqueAccount.factory.AccountFactory;
-import bean.Account;
+import banqueAccount.factory.OperationFactory;
+import banqueAccount.type.TypeOperation;
 
 
 public class AccountTest {
@@ -26,7 +31,7 @@ public class AccountTest {
 		assertEquals(account_2.getIdAccount(), 2);
 	}
 	
-	/* Create Account with solde */
+	/* Create Account with balance */
 	@Test
 	public void CreateAccountWithSoldeTest() {
 		
@@ -36,12 +41,12 @@ public class AccountTest {
 		// first Account
 		Account accountSolde_1 = AccountFactory.creatAccount(1200);
 		assertEquals(accountSolde_1.getIdAccount(), 1);
-		assertEquals(accountSolde_1.getSolde(), 1200);
+		assertEquals(accountSolde_1.getBalance(), 1200);
 		
 		// Second Account
 		Account accountSolde_2 = AccountFactory.creatAccount(5000);
 		assertEquals(accountSolde_2.getIdAccount(), 2);
-		assertEquals(accountSolde_2.getSolde(), 5000);
+		assertEquals(accountSolde_2.getBalance(), 5000);
 	}
 	
 	/*make a deposit operation*/
@@ -49,19 +54,16 @@ public class AccountTest {
 	public void makeADepositInAccount() {
 		//initialisation id
 		AccountFactory.initIdAccount();
+		OperationFactory.initIdOperation();
+		
+		//Create an account for deposite operation.
 		Account accountOperation = AccountFactory.creatAccount();
+		Operation depositOperation = OperationFactory.creatOperation();
+		depositOperation.setOperationType(TypeOperation.Deposit);
+		depositOperation.setOperationDate(new Date());
+		depositOperation.setOperationAmmount(100);
 		
-		Operation depositOperation = OperationFactory.createOperation();
-		depositOperation.setOperationType("Deposit");
-		depositOperation.setDateOperation(new Date());
-		depositOperation.setOperatioAmmount(100);
-		
-		accountOperation.getOperations().addOperation(depositOperation);
-		
-		
-		
-		
-		
+		assertEquals(accountOperation.addOperation(depositOperation), 100);
 		
 	}
 	

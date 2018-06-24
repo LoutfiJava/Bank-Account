@@ -1,6 +1,6 @@
 package banqueAccount.factory;
 
-import bean.Account;
+import banqueAccount.bean.Account;
 
 /**
  * 

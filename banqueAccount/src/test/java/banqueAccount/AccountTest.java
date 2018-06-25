@@ -65,7 +65,24 @@ public class AccountTest {
 		assertEquals(accountOperation.addOperation(depositOperation), 100);
 		
 	}
+	
+	/*make a deposit operation with a negative Amount*/
+	@Test
+	public void makeADepositInAccountWithANegativeAmount() {
+		//initialisation id
+		AccountFactory.initIdAccount();
+		OperationFactory.initIdOperation();
 		
+		//Create an account for deposite operation.
+		Account accountOperation = AccountFactory.creatAccount();
+		Operation depositOperation = OperationFactory.creatOperation();
+		depositOperation.setOperationType(TypeOperation.Deposit);
+		depositOperation.setOperationDate(new Date());
+		depositOperation.setOperationAmmount(-100);		
+		assertEquals(accountOperation.addOperation(depositOperation), -1);
+		
+	}
+	
 	/*make a withraw operation*/
 	@Test
 	public void makeAWithrawOperationFromAccount() {

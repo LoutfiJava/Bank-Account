@@ -1,10 +1,18 @@
-package bankAccountKata.factory;
+package banqueAccount.factory;
 
-import bankAccountKata.bean.Account;
+import banqueAccount.bean.Account;
 
+/**
+ * 
+ * 
+ * @author Loutfi SGHIR
+ * 
+ * Factory of Account.
+ *
+ */
 public class AccountFactory {
 
-	private static int idIncrement;
+private static int idIncrement;
 	
 	public static Account creatAccount() {
 		idIncrement++;

@@ -56,6 +56,7 @@ public class Account {
 				return -1;
 			}else {
 				balance = balance+operation.getOperationAmmount();
+				operation.setAccountBalanceAfteOperation(balance);
 				getListOfOperations().add(operation);
 				return balance;
 			}
@@ -65,6 +66,7 @@ public class Account {
 				return -1;
 			}else {
 				balance = balance-Math.abs(operation.getOperationAmmount());
+				operation.setAccountBalanceAfteOperation(balance);
 				getListOfOperations().add(operation);
 				return balance;
 			}

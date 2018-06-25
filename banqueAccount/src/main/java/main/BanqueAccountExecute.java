@@ -46,8 +46,7 @@ public class BanqueAccountExecute {
 					+ "Date of Operation : "+account.getListOfOperations().get(i).getOperationDate()+" || "
 					+ "Type Operation : "+account.getListOfOperations().get(i).getOperationType()+" || "
 					+ "Operation Amount : "+account.getListOfOperations().get(i).getOperationAmmount()+" || "
-					+ "Account Balance : "+account.getBalance()+" || ");
-			
+					+ "Account Balance After Operation : "+account.getListOfOperations().get(i).getAccountBalanceAfteOperation());
 		}
 		
 	}

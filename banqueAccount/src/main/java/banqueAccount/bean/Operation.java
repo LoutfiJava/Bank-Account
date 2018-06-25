@@ -14,6 +14,7 @@ public class Operation {
 	private Date operationDate;
 	private int operationAmmount;
 	private StatusOperation operationStatus;
+	private int accountBalanceAfteOperation;
 	
 	/**
 	 * @param idOperation
@@ -69,5 +70,12 @@ public class Operation {
 	public void setIdOperation(int idOperation) {
 		this.idOperation = idOperation;
 	}
+
+	public int getAccountBalanceAfteOperation() {
+		return accountBalanceAfteOperation;
+	}
 	
+	public void setAccountBalanceAfteOperation(int accountBalanceAfteOperation) {
+		this.accountBalanceAfteOperation = accountBalanceAfteOperation;
+	}
 }

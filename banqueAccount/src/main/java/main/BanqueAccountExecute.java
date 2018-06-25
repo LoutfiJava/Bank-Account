@@ -23,26 +23,7 @@ public class BanqueAccountExecute {
 		depositOperation.setOperationType(TypeOperation.Deposit);
 		depositOperation.setOperationDate(new Date());
 		depositOperation.setOperationAmmount(1000);
-		account.addOperation(depositOperation);
-		
-		/*US2
-		 * In order to retrieve some or all of my savings
-		 * As a bank client
-		 * I want to make a withdrawal from my account
-		 * */
-		Operation withrawOperation = OperationFactory.creatOperation();
-		withrawOperation.setOperationType(TypeOperation.Withraw);
-		withrawOperation.setOperationDate(new Date());
-		withrawOperation.setOperationAmmount(100);
-		account.addOperation(withrawOperation);
-		
-		/*US3
-		 * In order to check my operations
-		 * As a bank client
-		 * I want to see the history (operation, date, amount, balance) of my operations
-		 * */
-		
-		
+		account.addOperation(depositOperation);	
 	}
 
 }

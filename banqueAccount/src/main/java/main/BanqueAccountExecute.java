@@ -36,7 +36,19 @@ public class BanqueAccountExecute {
 		withrawOperation.setOperationAmmount(100);
 		account.addOperation(withrawOperation);
 		
-		
+		/*US3
+		 * In order to check my operations
+		 * As a bank client
+		 * I want to see the history (operation, date, amount, balance) of my operations
+		 * */
+		for (int i = 0; i < account.getListOfOperations().size(); i++) {
+			System.out.println("OperationId : "+account.getListOfOperations().get(i).getIdOperation()+" || "
+					+ "Date of Operation : "+account.getListOfOperations().get(i).getOperationDate()+" || "
+					+ "Type Operation : "+account.getListOfOperations().get(i).getOperationType()+" || "
+					+ "Operation Amount : "+account.getListOfOperations().get(i).getOperationAmmount()+" || "
+					+ "Account Balance : "+account.getBalance()+" || ");
+			
+		}
 		
 	}
 

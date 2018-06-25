@@ -65,10 +65,10 @@ public class AccountTest {
 		assertEquals(accountOperation.addOperation(depositOperation), 100);
 		
 	}
-	
+		
 	/*make a withraw operation*/
 	@Test
-	public void makeAWithrawOperationInAccount() {
+	public void makeAWithrawOperationFromAccount() {
 		//initialisation id
 		AccountFactory.initIdAccount();
 		OperationFactory.initIdOperation();
@@ -81,4 +81,22 @@ public class AccountTest {
 		withrawOperation.setOperationAmmount(100);		
 		assertEquals(accountOperation.addOperation(withrawOperation), 4900);
 	}	
+	
+	/*make a withraw operation with a balance insuffisant*/
+	@Test
+	public void makeAWithrawOperationFromAccountWithInsuffisantBalance() {
+		//initialisation id
+		AccountFactory.initIdAccount();
+		OperationFactory.initIdOperation();
+		
+		//Create an account for withraw operation.
+		Account accountOperation = AccountFactory.creatAccount(5000);
+		Operation withrawOperation = OperationFactory.creatOperation();
+		withrawOperation.setOperationType(TypeOperation.Withraw);
+		withrawOperation.setOperationDate(new Date());
+		withrawOperation.setOperationAmmount(6000);		
+		assertEquals(accountOperation.addOperation(withrawOperation), -1);
+	}	
+	
+	
 }
